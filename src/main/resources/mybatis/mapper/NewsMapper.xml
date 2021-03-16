@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cloudsimple.news.dao.NewsMapper">
+
+    <select id="getNewsByNewsid" resultType="News" parameterType="Long">
+        select * from News where newsId=#{newsId};
+    </select>
+
+    <select id="getPagingById" resultType="java.util.Map">
+        SELECT newsid,title,digest,image_url FROM News LIMIT #{indexNum},#{limitNum};
+    </select>
+
+    <select id="getCount" resultType="Long">
+        select COUNT(*) from News;
+    </select>
+</mapper>
